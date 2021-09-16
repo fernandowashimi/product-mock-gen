@@ -196,9 +196,7 @@ const Home = () => {
 
   const [product, setProduct] = useState(initialProductValue);
   const [form, setForm] = useState({ ...initialFormValue, id: uuidv4() });
-  const [variations, setVariations] = useState<VariationLevel[]>([
-    { type: 'Cor', values: ['Azul', 'Verde'] },
-  ]);
+  const [variations, setVariations] = useState<VariationLevel[]>([]);
 
   const {
     isOpen: isResultModalOpen,
