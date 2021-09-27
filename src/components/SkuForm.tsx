@@ -58,11 +58,7 @@ const baseSkuValue = {
   oldPriceText: '',
   price: 0,
   oldPrice: 0,
-  installment: {
-    count: 0,
-    value: 0,
-    valueText: '',
-  },
+  installment: null,
   images: [],
   specs: [],
 };
@@ -120,14 +116,17 @@ const SkuFormModal = (
   };
 
   const handleComplete = () => {
+
+    const installmentObj = form.installmentCount === 0 ? null : {
+      count: form.installmentCount,
+      value: parseFloat(form.installmentPrice),
+      valueText: format(form.installmentPrice),
+    };
+
     onSave({
       ...sku,
       images: form.images.filter((x) => x.value.length),
-      installment: {
-        count: form.installmentCount,
-        value: parseFloat(form.installmentPrice),
-        valueText: format(form.installmentPrice),
-      },
+      installment: installmentObj,
       oldPrice: parseFloat(form.oldPrice),
       oldPriceText: format(form.oldPrice),
       price: parseFloat(form.price),
@@ -153,8 +152,8 @@ const SkuFormModal = (
 
     setForm({
       images: sku.images,
-      installmentCount: sku.installment.count,
-      installmentPrice: String(sku.installment.value),
+      installmentCount: sku.installment?.count || 0,
+      installmentPrice: String(sku.installment?.value || 0),
       oldPrice: String(sku.price),
       price: String(sku.price),
     });

@@ -4,7 +4,7 @@ interface Product {
   oldPriceText: string;
   price: number;
   oldPrice: number;
-  installment: Installment;
+  installment: Installment | null;
   name: string;
   description: string;
   specs: Spec[];
@@ -28,7 +28,7 @@ interface Sku {
   oldPriceText: string;
   price: number;
   oldPrice: number;
-  installment: Installment;
+  installment: Installment | null;
   images: Image[];
   specs: Spec[];
 }

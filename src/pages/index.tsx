@@ -54,11 +54,7 @@ const initialProductValue: Product = {
   oldPriceText: '',
   price: 0,
   oldPrice: 0,
-  installment: {
-    count: 0,
-    value: 0,
-    valueText: '',
-  },
+  installment: null,
   skus: [],
   specs: [],
 };
@@ -72,11 +68,7 @@ const baseSkuValue: Sku = {
   oldPriceText: '',
   price: 0,
   oldPrice: 0,
-  installment: {
-    count: 0,
-    value: 0,
-    valueText: '',
-  },
+  installment: null,
   images: [],
   specs: [],
 };
